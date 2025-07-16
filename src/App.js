@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext';
+import Dashboard from './pages/Dashboard';
+import AddEditEvent from './pages/AddEditEvent';
+import Login from './pages/Login';
+import PrivateRoute from './components/PrivateRoute';
+import 'bootstrap/dist/css/bootstrap.min.css';         
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';    
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route
+            path="/"
+            element={<PrivateRoute><Dashboard /></PrivateRoute>}
+          />
+          <Route
+            path="/add"
+            element={<PrivateRoute><AddEditEvent /></PrivateRoute>}
+          />
+          <Route
+            path="/edit/:id"
+            element={<PrivateRoute><AddEditEvent /></PrivateRoute>}
+          />
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 
