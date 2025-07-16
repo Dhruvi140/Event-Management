@@ -1,3 +1,18 @@
+# 🎉 Event Management Dashboard
+
+A React-based admin dashboard for managing events. Users can **Add**, **Edit**, **Delete**, and **Filter** events.
+
+## 🔐 Admin Login Credentials
+
+To log in to the system, use:
+
+- **Username:** `admin`
+- **Password:** `123456`
+
+> These are hardcoded for demo/testing purposes.
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
